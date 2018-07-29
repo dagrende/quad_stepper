@@ -23,7 +23,8 @@ void setup() {
 }
 
 void loop() {
-  out = 53200000 / 10;
+  int inAdj = in == 0 ? 1 : in;
+  out = 53200000 * 16 / inAdj;
 
   SPI.beginTransaction(SPISettings(1000000, LSBFIRST, SPI_MODE0));
   digitalWrite(D8, 0);
@@ -33,5 +34,5 @@ void loop() {
 
   Serial.println(in);
 
-  delay(500);
+  delay(100);
 }
