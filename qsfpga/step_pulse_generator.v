@@ -3,11 +3,11 @@ module step_pulse_generator(clk, period, position, dir, step);
 	input clk;
 	input signed [PERIOD_BITS - 1:0] period;
 	output signed [PERIOD_BITS - 1:0] position;
-	output dir, step;
+	input dir;
+	output step;
 	reg [PERIOD_BITS - 1:0] ticks;
-	reg [10:0] step_timer;
-	reg [PERIOD_BITS - 1:0] position;
-		
+	reg [7:0] step_timer;
+	reg signed [PERIOD_BITS - 1:0] position;
 	always @(posedge clk)
 	begin
 		ticks = ticks + 1;
@@ -21,5 +21,4 @@ module step_pulse_generator(clk, period, position, dir, step);
 		end
 	end
 	assign step = step_timer > 0;
-	assign dir = 0;
 endmodule

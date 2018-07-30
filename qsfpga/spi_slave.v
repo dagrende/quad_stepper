@@ -1,21 +1,19 @@
-module spi_slave(clk, mosi, miso, sck, ssel, transmit_data, receive_data, receive_ready);
+module spi_slave(clk, mosi, miso, sck, cs, tx_data, rx_data, rx_ready);
   parameter DATA_LEN = 32;
   
   input clk, sck;
-  input ssel; // active low
+  input cs; // active low
   input mosi;
-  output miso;  // hi imp when ssel is high
-  output [DATA_LEN - 1:0] receive_data;
-  input [DATA_LEN - 1:0] transmit_data;
-  output receive_ready;
+  output miso;  // hi imp when cs is high
+  output [DATA_LEN - 1:0] rx_data;
+  input [DATA_LEN - 1:0] tx_data;
+  output rx_ready;
   reg [DATA_LEN - 1:0] trx_buffer;
 
   reg [2:0] sck_sync, ssel_sync;
-  reg [1:0] mosi_sync;
   always @(posedge clk) begin
-    mosi_sync <= {mosi, mosi_sync[1:1]};
     sck_sync <= {sck, sck_sync[2:1]};
-    ssel_sync <= {ssel, ssel_sync[2:1]};
+    ssel_sync <= {cs, ssel_sync[2:1]};
   end
 
   wire sck_posedge = sck_sync[1:0] == 2'b10;
@@ -28,11 +26,11 @@ module spi_slave(clk, mosi, miso, sck, ssel, transmit_data, receive_data, receiv
 
   always @(posedge clk) begin
     if (ssel_negedge) begin
-      trx_buffer = transmit_data;
+      trx_buffer = tx_data;
 	  bit_count = 0;
     end
     else if (sck_posedge) begin
-		mosi_mem = mosi_sync;
+		mosi_mem = mosi;
     end
     else if (sck_negedge) begin
       trx_buffer = {mosi_mem, trx_buffer[DATA_LEN - 1: 1]};
@@ -41,6 +39,6 @@ module spi_slave(clk, mosi, miso, sck, ssel, transmit_data, receive_data, receiv
   end
 
   assign miso = ssel_active ? trx_buffer[0] : 1'bz;
-  assign receive_ready = ssel_active && (bit_count == DATA_LEN);
-  assign receive_data = trx_buffer;
+  assign rx_ready = ssel_active && (bit_count == DATA_LEN);
+  assign rx_data = trx_buffer;
 endmodule
