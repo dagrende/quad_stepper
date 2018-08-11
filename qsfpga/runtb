@@ -1,0 +1,2 @@
+#!/bin/bash
+iverilog -o $1_tb.vvp $1_tb.v && vvp $1_tb.vvp && open -a Scansion $1.vcd

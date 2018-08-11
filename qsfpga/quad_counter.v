@@ -1,7 +1,7 @@
 module quad_counter(clk, quadA, quadB, position);
 	parameter COUNT_BITS = 32;
 	input clk, quadA, quadB;
-	output position;
+	output signed [COUNT_BITS - 1:0] position;
 
 	reg [2:0] quadA_delayed, quadB_delayed;
 
@@ -11,8 +11,8 @@ module quad_counter(clk, quadA, quadB, position);
 	wire count_enable = quadA_delayed[1] ^ quadA_delayed[2] ^ quadB_delayed[1] ^ quadB_delayed[2];
 	wire count_up = quadA_delayed[1] ^ quadB_delayed[2];
 
-	reg signed [COUNT_BITS - 1:0] position;
-	
+	reg signed [COUNT_BITS - 1:0] position = 0;
+
 	always @(posedge clk)
 	begin
 		if (count_enable)

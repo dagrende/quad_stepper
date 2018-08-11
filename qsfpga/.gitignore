@@ -4,3 +4,5 @@ impl1
 .run_manager.ini
 *.xml
 *.html
+*.vcd
+*.vvp
