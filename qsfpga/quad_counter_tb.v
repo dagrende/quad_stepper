@@ -15,7 +15,7 @@ module quad_counter_tb();
   end
 
   initial begin
-    $dumpfile("quad_counter.vcd");
+    $dumpfile("quad_counter_tb.vcd");
     $dumpvars(0, quad_counter_tb);
 
     #25;
@@ -30,5 +30,4 @@ module quad_counter_tb();
 
     $finish;
    end
-
 endmodule

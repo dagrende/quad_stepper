@@ -15,8 +15,10 @@ module reciprocal_divider(clk, multiplicand, dividend, outclk);
     if (counter >= dividend) begin
       counter = counter - dividend;
       outclk = 1;
-    end else begin
-      outclk = 0;
     end
+  end
+
+  always @(negedge clk) begin
+    outclk = 0;
   end
 endmodule
