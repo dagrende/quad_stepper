@@ -1,11 +1,12 @@
 `include "quad_detector.v"
 `include "reciprocal_divider.v"
 
-module gearbox(clk, quadA, quadB, step_pulse);
+module gearbox(clk, phaseA, phaseB, step_pulse);
 	parameter COUNT_BITS = 32;
 	parameter CLKF = 53200000;	// clock freq Hz
-	parameter REGTICKS = 524288;	// =2^19 clk ticks for each regulator loop turn (CLKF/REGTICKS = 101 approx)
-	parameter STEP_PULSE_TICKS = 120;
+  parameter REGTICKSX = 10;
+	parameter REGTICKS = 1 << REGTICKSX;	// =2^19 clk ticks for each regulator loop turn (CLKF/REGTICKS = 101 approx)
+	parameter STEP_PULSE_TICKS = 5;
 
 	parameter m = 7;
 	parameter d = 3;
@@ -13,12 +14,12 @@ module gearbox(clk, quadA, quadB, step_pulse);
 	parameter MPE = 200 * 32 * 6 / 1600;	// motor revolution pulses per encoder revolution pulses
 	parameter MXMPE = d * MPE;
 
-	input clk, quadA, quadB;
+	input clk, phaseA, phaseB;
 	output step_pulse;
 
-	reg [COUNT_BITS - 1:0] encoder_position, scaled_encoder_position, scaled_motor_position, step_freq_m, step_freq_d;
+	reg [COUNT_BITS - 1:0] encoder_position = 0, scaled_encoder_position = 0, scaled_motor_position = 0, step_freq_m, step_freq_d;
 
-	quad_detector #(COUNT_BITS) qd(clk, quadA, quadB, encoder_step, encoder_up);
+	quad_detector #(COUNT_BITS) qd(clk, phaseA, phaseB, encoder_step, encoder_up);
 	reciprocal_divider rd(clk, step_freq_m, step_freq_d, motor_step);
 
 	reg [31:0] step_pulse_timer = 0;
@@ -26,6 +27,7 @@ module gearbox(clk, quadA, quadB, step_pulse);
 
 	always @(posedge motor_step) begin
 		scaled_motor_position = scaled_motor_position + d;
+    step_pulse_timer = STEP_PULSE_TICKS;
 	end
 
 	always @(posedge encoder_step) begin

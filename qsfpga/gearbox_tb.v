@@ -16,15 +16,15 @@ module gearbox_tb();
     $dumpvars(0, gearbox_tb);
 
     #25;
-		repeat (100) begin
+		repeat (300) begin
 	    phaseA = 1;
-	    #10001;
+	    #101;
 	    phaseB = 1;
-	    #10001;
+	    #101;
 	    phaseA = 0;
-	    #10001;
+	    #101;
 	    phaseB = 0;
-	    #50001;
+	    #201;
 		end
 
     $finish;
