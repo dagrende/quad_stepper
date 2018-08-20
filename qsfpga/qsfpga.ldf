@@ -2,17 +2,17 @@
 <BaliProject version="3.2" title="qsfpga" device="LCMXO2-256HC-5SG32C" default_implementation="impl1">
     <Options/>
     <Implementation title="impl1" dir="impl1" description="impl1" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="tacho_fpga"/>
-        <Source name="qsfpga.v" type="Verilog" type_short="Verilog">
-            <Options top_module="tacho_fpga"/>
+        <Options def_top="qsfpga2"/>
+        <Source name="qsfpga2.v" type="Verilog" type_short="Verilog">
+            <Options top_module="qsfpga2"/>
         </Source>
-        <Source name="quad_counter.v" type="Verilog" type_short="Verilog">
+        <Source name="quad_detector.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="spi_slave.v" type="Verilog" type_short="Verilog">
+        <Source name="reciprocal_divider.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="step_pulse_generator.v" type="Verilog" type_short="Verilog">
+        <Source name="gearbox.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
         <Source name="qsfpga.lpf" type="Logic Preference" type_short="LPF">

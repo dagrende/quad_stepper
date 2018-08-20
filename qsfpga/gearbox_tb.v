@@ -12,19 +12,19 @@ module gearbox_tb();
   end
 
   initial begin
-    $dumpfile("gearbox_tb.vcd");
-    $dumpvars(0, gearbox_tb);
+    //$dumpfile("gearbox_tb.vcd");
+    //$dumpvars(0, gearbox_tb);
 
     #25;
-		repeat (300) begin
+		repeat (3000) begin
 	    phaseA = 1;
-	    #101;
+	    #12755;
 	    phaseB = 1;
-	    #101;
+	    #12755;
 	    phaseA = 0;
-	    #101;
+	    #12755;
 	    phaseB = 0;
-	    #201;
+	    #12755;
 		end
 
     $finish;

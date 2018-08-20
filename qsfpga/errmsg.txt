@@ -1,0 +1,237 @@
+Starting: "prj_run Synthesis -impl impl1 -task Lattice_Synthesis"
+
+
+************************************************************
+**  Lattice Synthesis Engine                              **
+************************************************************
+
+synthesis -f "qsfpga_impl1_lattice.synproj"
+synthesis:  version Diamond (64-bit) 3.10.0.111.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+Mon Aug 20 07:09:40 2018
+
+
+Command Line:  synthesis -f qsfpga_impl1_lattice.synproj -gui -msgset /media/sf_vboxshared/quad_stepper/qsfpga/promote.xml
+
+INFO - Lattice Synthesis Engine Launched.
+Synthesis options:
+The -a option is MachXO2.
+The -s option is 5.
+The -t option is QFN32.
+The -d option is LCMXO2-256HC.
+Using package QFN32.
+Using performance grade 5.
+
+
+##########################################################
+
+### Lattice Family : MachXO2
+
+### Device  : LCMXO2-256HC
+
+### Package : QFN32
+
+### Speed   : 5
+
+##########################################################
+
+
+
+INFO - User-Selected Strategy Settings
+Optimization goal = Balanced
+Top-level module name = qsfpga2.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = auto
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-p /media/sf_vboxshared/quad_stepper/qsfpga (searchpath added)
+-p /usr/local/diamond/3.10_x64/ispfpga/xo2c00/data (searchpath added)
+-p /media/sf_vboxshared/quad_stepper/qsfpga/impl1 (searchpath added)
+-p /media/sf_vboxshared/quad_stepper/qsfpga (searchpath added)
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v
+NGD file = qsfpga_impl1.ngd
+-sdc option: SDC file input not used.
+-lpf option: Output file option is ON.
+Hardtimer checking is enabled (default). The -dt option is not used.
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Technology check ok...
+
+Analyzing Verilog file /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Compile design.
+Compile Design Begin
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v. VERI-1482
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v. VERI-1482
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v. VERI-1482
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v. VERI-1482
+Analyzing Verilog file /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Top module name (Verilog): qsfpga2
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v(1): compiling module qsfpga2. VERI-1018
+INFO - /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1793): compiling module OSCH(NOM_FREQ="53.2"). VERI-1018
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v(4): compiling module gearbox. VERI-1018
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v(4): compiling module quad_detector. VERI-1018
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v(2): compiling module reciprocal_divider. VERI-1018
+WARNING - /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v(21): Register outclk_16 is stuck at Zero. VDB-5013
+WARNING - Net gnd has following drivers :
+	 instance i1
+
+	 instance outclk_13_15
+
+
+
+ERROR - /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v(17): net gnd is constantly driven from multiple places at instance outclk_13_15, on port q. VDB-1000
+Done: error code 2
+----------------------------
+Starting: "prj_run Synthesis -impl impl1 -task Lattice_Synthesis"
+
+
+************************************************************
+**  Lattice Synthesis Engine                              **
+************************************************************
+
+synthesis -f "qsfpga_impl1_lattice.synproj"
+synthesis:  version Diamond (64-bit) 3.10.0.111.2
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+Mon Aug 20 07:15:11 2018
+
+
+Command Line:  synthesis -f qsfpga_impl1_lattice.synproj -gui -msgset /media/sf_vboxshared/quad_stepper/qsfpga/promote.xml
+
+INFO - Lattice Synthesis Engine Launched.
+Synthesis options:
+The -a option is MachXO2.
+The -s option is 5.
+The -t option is QFN32.
+The -d option is LCMXO2-256HC.
+Using package QFN32.
+Using performance grade 5.
+
+
+##########################################################
+
+### Lattice Family : MachXO2
+
+### Device  : LCMXO2-256HC
+
+### Package : QFN32
+
+### Speed   : 5
+
+##########################################################
+
+
+
+INFO - User-Selected Strategy Settings
+Optimization goal = Balanced
+Top-level module name = qsfpga2.
+Target frequency = 200.000000 MHz.
+Maximum fanout = 1000.
+Timing path count = 3
+BRAM utilization = 100.000000 %
+DSP usage = true
+DSP utilization = 100.000000 %
+fsm_encoding_style = auto
+resolve_mixed_drivers = 0
+fix_gated_clocks = 1
+
+Mux style = Auto
+Use Carry Chain = true
+carry_chain_length = 0
+Loop Limit = 1950.
+Use IO Insertion = TRUE
+Use IO Reg = AUTO
+
+Resource Sharing = TRUE
+Propagate Constants = TRUE
+Remove Duplicate Registers = TRUE
+force_gsr = auto
+ROM style = auto
+RAM style = auto
+The -comp option is FALSE.
+The -syn option is FALSE.
+-p /media/sf_vboxshared/quad_stepper/qsfpga (searchpath added)
+-p /usr/local/diamond/3.10_x64/ispfpga/xo2c00/data (searchpath added)
+-p /media/sf_vboxshared/quad_stepper/qsfpga/impl1 (searchpath added)
+-p /media/sf_vboxshared/quad_stepper/qsfpga (searchpath added)
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v
+Verilog design file = /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v
+NGD file = qsfpga_impl1.ngd
+-sdc option: SDC file input not used.
+-lpf option: Output file option is ON.
+Hardtimer checking is enabled (default). The -dt option is not used.
+The -r option is OFF. [ Remove LOC Properties is OFF. ]
+Technology check ok...
+
+Analyzing Verilog file /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Compile design.
+Compile Design Begin
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v. VERI-1482
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v. VERI-1482
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v. VERI-1482
+Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v. VERI-1482
+Analyzing Verilog file /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v. VERI-1482
+Top module name (Verilog): qsfpga2
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v(1): compiling module qsfpga2. VERI-1018
+INFO - /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1793): compiling module OSCH(NOM_FREQ="53.2"). VERI-1018
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v(4): compiling module gearbox. VERI-1018
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v(4): compiling module quad_detector. VERI-1018
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v(2): compiling module reciprocal_divider. VERI-1018
+WARNING - /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v(35): system task display ignored for synthesis. VERI-1142
+WARNING - Net step_pulse_timer[31] has following drivers :
+	 instance step_pulse_timer
+
+	 instance step_pulse_timer_24
+
+
+
+ERROR - /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v(42): net step_pulse_timer[31] is constantly driven from multiple places at instance step_pulse_timer_24, on port q[31]. VDB-1000
+Done: error code 2
+Starting: parse design source files
+(VERI-1482) Analyzing Verilog file /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v
+(VERI-1482) Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v
+(VERI-1482) Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v
+(VERI-1482) Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v
+(VERI-1482) Analyzing Verilog file /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v(1,8-1,15) (VERI-1018) compiling module qsfpga2
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v(1,1-15,10) (VERI-9000) elaborating module 'qsfpga2'
+INFO - /usr/local/diamond/3.10_x64/ispfpga/userware/unix/SYNTHESIS_HEADERS/machxo2.v(1793,1-1798,10) (VERI-9000) elaborating module 'OSCH_uniq_1'
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/gearbox.v(4,1-59,10) (VERI-9000) elaborating module 'gearbox_uniq_1'
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/quad_detector.v(4,1-15,10) (VERI-9000) elaborating module 'quad_detector_uniq_1'
+INFO - /media/sf_vboxshared/quad_stepper/qsfpga/reciprocal_divider.v(2,1-22,10) (VERI-9000) elaborating module 'reciprocal_divider_uniq_1'
+WARNING - /media/sf_vboxshared/quad_stepper/qsfpga/qsfpga2.v(7,2-12,4) (VERI-1927) port SEDSTDBY remains unconnected for this instance
+Done: design load finished with (0) errors, and (1) warnings
